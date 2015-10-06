@@ -18,8 +18,14 @@ public class SampleServiceImpl implements SampleService {
 	private SampleDAO sampleDAO;
 
 	@Override
-	public List<Map<String, Object>> selectBordList(Map<String, Object> map) throws Exception {
+	public List<Map<String, Object>> selectBoardList(Map<String, Object> map) throws Exception {
 		return sampleDAO.selectBoardList(map);
+	}
+
+	@Override
+	public void insertBoard(Map<String,Object> map) throws Exception {
+		sampleDAO.insertBoard(map);
+		
 	}
 	
 }

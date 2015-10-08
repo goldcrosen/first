@@ -27,7 +27,7 @@
 	    <input id="write" class="btn" type="submit" value="작성하기" />
     </form>	
        
-       	<form id = "listForm" name="target" action="<c:url value='/sample/openBoardList.do' />" >
+       	<form id ="listForm" action="<c:url value='/sample/openBoardList.do' />" >
 	        <input id="list" class="btn" type="submit" value="목록으로" /> 
 	    </form>   
   

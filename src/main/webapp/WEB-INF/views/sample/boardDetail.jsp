@@ -40,14 +40,15 @@
             </tr>
         </tbody>
     </table>
-     
-    <a href="#this" class="btn" id="list">목록으로</a>
+    <form id="listForm" action="<c:url value='/sample/openBoardList.do' />"> 
+    <input id="list" type="button" class="btn" value="목록으로"/>
+    </form>
     <a href="#this" class="btn" id="update">수정하기</a>
      
     <%@ include file="/WEB-INF/include/include-body.jspf" %>
     <script type="text/javascript">
         $(document).ready(function(){
-            $("#list").on("click", function(e){ //목록으로 버튼
+            $("#list").click( function(e){ //목록으로 버튼
                 e.preventDefault();
                 fn_openBoardList();
             });
@@ -59,9 +60,7 @@
         });
          
         function fn_openBoardList(){
-            var comSubmit = new ComSubmit();
-            comSubmit.setUrl("<c:url value='/sample/openBoardList.do' />");
-            comSubmit.submit();
+            $("#listForm").submit();
         }
          
         function fn_openBoardUpdate(){

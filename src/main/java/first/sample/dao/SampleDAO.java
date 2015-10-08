@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 
 import first.common.dao.AbstractDAO;
+import first.sample.model.TbBoardVO;
 
 @Repository("sampleDAO")
 public class SampleDAO extends AbstractDAO{
@@ -17,6 +18,10 @@ public class SampleDAO extends AbstractDAO{
 
 	public void insertBoard(Map<String, Object> map) {
 		insert("sample.insertBoard", map);
+	}
+	
+	public TbBoardVO selectBoardDetail(TbBoardVO vo){
+		return (TbBoardVO) selectOne("sample.selectBoardDetail", vo);
 	}
 
 }

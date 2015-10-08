@@ -5,7 +5,7 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 </head>
 <body>
-    <!-- <form id="frm"> -->
+    <form id="contentsFrom" method="post" action="<c:url value='/sample/insertBoard.do' />" >
         <table class="board_view">
             <colgroup>
                 <col width="15%">
@@ -15,17 +15,19 @@
             <tbody>
                 <tr>
                     <th scope="row">제목</th>
-                    <td><input type="text" id="TITLE" name="TITLE" class="wdp_90"></input></td>
+                    <td><input type="text" id="title" name="map['TITLE']" class="wdp_90"></input></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="view_text">
-                        <textarea rows="20" cols="100" title="내용" id="CONTENTS" name="CONTENTS"></textarea>
+                        <textarea rows="20" cols="100" title="내용" id="contents" name="map['CONTENTS']"></textarea>
                     </td>
                 </tr>
             </tbody>
         </table>
-       	<form id = "target" name="target" method="post">
-	    	<input id="write" class="btn" type="submit" value="작성하기" />
+	    <input id="write" class="btn" type="submit" value="작성하기" />
+    </form>	
+       
+       	<form id = "listForm" name="target" action="<c:url value='/sample/openBoardList.do' />" >
 	        <input id="list" class="btn" type="submit" value="목록으로" /> 
 	    </form>   
   
@@ -45,11 +47,11 @@ $(document).ready(function(){
 });
 
 function fn_openBoardList(){
-	$("#target").attr("action", "<c:url value='/sample/openBoardList.do' />").submit();
+	$("#listForm").submit();
 }
 
 function fn_insertBoard(){
-	$("#target").attr("action", "<c:url value='/sample/insertBoard.do' />").submit();
+	$("#contentsFrom").submit();
 }
     
 </script>

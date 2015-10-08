@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import first.sample.dao.SampleDAO;
+import first.sample.model.TbBoardVO;
 
 @Service("sampleService")
 public class SampleServiceImpl implements SampleService {
@@ -26,6 +27,11 @@ public class SampleServiceImpl implements SampleService {
 	public void insertBoard(Map<String,Object> map) throws Exception {
 		sampleDAO.insertBoard(map);
 		
+	}
+
+	@Override
+	public TbBoardVO selectBoardDetail(TbBoardVO vo) throws Exception {
+		return sampleDAO.selectBoardDetail(vo);
 	}
 	
 }
